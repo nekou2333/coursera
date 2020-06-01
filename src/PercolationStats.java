@@ -54,14 +54,11 @@ public class PercolationStats {
 
     // test client (see below)
     public static void main(String[] args) {
-        int n[] = new int[2];
-
-        for (int i = 0; i < args.length; i++) {
-            n[i] = Integer.parseInt(args[i]);
-        }
+        int n = Integer.parseInt(args[0]);
+        int trials = Integer.parseInt(args[1]);
 
 
-        PercolationStats test = new PercolationStats(n[0], n[1]);
+        PercolationStats test = new PercolationStats(n, trials);
         System.out.println("mean\t\t\t\t\t = " + test.mean());
         System.out.println("stddev\t\t\t\t\t = " + test.stddev());
         System.out.println("95% confidence interval\t = [" + test.confidenceLo() + ", " + test.confidenceHi() + "]");

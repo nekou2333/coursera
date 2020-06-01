@@ -1,8 +1,8 @@
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
-    private final WeightedQuickUnionUF uf;
-    private final WeightedQuickUnionUF uf_without_bottom;
+    private final WeightedQuickUnionUF uf;                  // uf with both top and bottom virtual nodes
+    private final WeightedQuickUnionUF uf_without_bottom;   // uf with only top virtual node
     private boolean[] sites;
     private final int n;
     private int count;
@@ -15,9 +15,6 @@ public class Percolation {
         uf = new WeightedQuickUnionUF(n * n + 2);
         uf_without_bottom = new WeightedQuickUnionUF(n * n + 1);
         sites = new boolean[n * n];
-        for (int i = 0; i < n * n; i++) {
-            sites[i] = false;
-        }
         this.n = n;
         count = 0;
     }
